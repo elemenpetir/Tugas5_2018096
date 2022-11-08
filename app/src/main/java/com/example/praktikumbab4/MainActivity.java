@@ -9,13 +9,34 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.os.Bundle;
 import android.view.MenuItem;
 import com.google.android.material.navigation.NavigationView;
+
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 public class MainActivity extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
+    RecyclerView recylerView;
+    String s1[], s2[],s3[];
+    int images[] =
+            {R.drawable.sneaker,R.drawable.adams,R.drawable.v205};
+    // recycle view
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        recylerView = findViewById(R.id.recyclerView);
+        s1 = getResources().getStringArray(R.array.Album);
+        s2 = getResources().getStringArray(R.array.deskripsi);
+        s3 = getResources().getStringArray(R.array.star);
+        AlbumAdapter appAdapter = new
+                AlbumAdapter(this,s1,s2,s3,images);
+        recylerView.setAdapter(appAdapter);
+        LinearLayoutManager layoutManager  = new LinearLayoutManager(MainActivity.this,LinearLayoutManager.HORIZONTAL,false);
+        recylerView.setLayoutManager(layoutManager);
+        recylerView.setItemAnimator(new DefaultItemAnimator());
         //mengganti actionbar dengan toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -27,8 +48,8 @@ public class MainActivity extends AppCompatActivity implements
         //membuat hamburger icon pada toolbar dan animasinya
         ActionBarDrawerToggle toggle = new
                 ActionBarDrawerToggle(this, drawer, toolbar,
-                R.string.navigation_drawer_open,
-                R.string.navigation_drawer_close);
+                R.string.Open,
+                R.string.Close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         //membuat default navigation menu select

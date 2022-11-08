@@ -1,5 +1,20 @@
 <resources>
-    <string name="app_name">praktikumbab4</string>
-    <string name="navigation_drawer_open">Open Navigation Drawer</string>
-    <string name="navigation_drawer_close">Close Navigation Drawer</string>
+    <string name="app_name">Bandcamp</string>
+    <string name="Open">Open</string>
+    <string name="Close">Close</string>
+    <string-array name="Album">
+        <item>Morfem - Sneakerfuzz</item>
+        <item>The Adams - The Adams</item>
+        <item>The Adams - V2.05</item>
+    </string-array>
+    <string-array name="star">
+        <item>4.4</item>
+        <item>4.9</item>
+        <item>5.0</item>
+    </string-array>
+    <string-array name="deskripsi">
+        <item>Rp. 70.000</item>
+        <item>Rp. 85.000</item>
+        <item>Rp. 85.000</item>
+    </string-array>
 </resources>
